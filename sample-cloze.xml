@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<quiz>
+<question type="category">
+    <category>
+        <text>$course$/sample</text>
+    </category>
+</question>
+<question type="cloze">
+     <name>
+         <text>Q</text>
+     </name>
+     <questiontext format="html">
+         <text><![CDATA[<p>In a farm there are:
+<ul>
+<li> 3 chicken 
+<li> 4 ducks
+<li> 5 cows
+<li> 2 rhynos
+</ul>
+
+<ol>
+<li> How many legs have they in total? {1:SHORTANSWER:%100%42}
+<li> How many horns have they in total? {1:SHORTANSWER:%100%12}
+<li> {1:MRH:%-33.333333333333336%chicken~%-33.333333333333336%ducks~%100.0%cows~%-33.333333333333336%rhynos} have the greatest number of legs in total
+</ol>
+
+]]></text>
+     </questiontext>
+</question>
+<question type="cloze">
+     <name>
+         <text>Q</text>
+     </name>
+     <questiontext format="html">
+         <text><![CDATA[<p>In a farm there are:
+<ul>
+<li> 1 chicken 
+<li> 5 ducks
+<li> 2 cows
+<li> 2 rhynos
+</ul>
+
+<ol>
+<li> How many legs have they in total? {1:SHORTANSWER:%100%28}
+<li> How many horns have they in total? {1:SHORTANSWER:%100%6}
+<li> {1:MRH:%-33.333333333333336%chicken~%100.0%ducks~%-33.333333333333336%cows~%-33.333333333333336%rhynos} have the greatest number of legs in total
+</ol>
+
+]]></text>
+     </questiontext>
+</question>
+<question type="cloze">
+     <name>
+         <text>Q</text>
+     </name>
+     <questiontext format="html">
+         <text><![CDATA[<p>In a farm there are:
+<ul>
+<li> 3 chicken 
+<li> 2 ducks
+<li> 1 cows
+<li> 4 rhynos
+</ul>
+
+<ol>
+<li> How many legs have they in total? {1:SHORTANSWER:%100%30}
+<li> How many horns have they in total? {1:SHORTANSWER:%100%6}
+<li> {1:MRH:%-33.333333333333336%chicken~%-33.333333333333336%ducks~%-33.333333333333336%cows~%100.0%rhynos} have the greatest number of legs in total
+</ol>
+
+]]></text>
+     </questiontext>
+</question>
+<question type="cloze">
+     <name>
+         <text>Q</text>
+     </name>
+     <questiontext format="html">
+         <text><![CDATA[<p>In a farm there are:
+<ul>
+<li> 1 chicken 
+<li> 1 ducks
+<li> 2 cows
+<li> 1 rhynos
+</ul>
+
+<ol>
+<li> How many legs have they in total? {1:SHORTANSWER:%100%16}
+<li> How many horns have they in total? {1:SHORTANSWER:%100%5}
+<li> {1:MRH:%-50.0%chicken~%-50.0%ducks~%50.0%cows~%50.0%rhynos} have the greatest number of legs in total
+</ol>
+
+]]></text>
+     </questiontext>
+</question>
+</quiz>

@@ -1,0 +1,8 @@
+# First field is for question text fillers as ++++
+# one by one mapped. Each of the following
+# fields fill a ____ in template. If multielement
+# question becomes a multiple choice, otherwise short answer
+3@4@5@2|42|12|chicken@ducks@=cows@rhynos
+1@5@2@2|28|6|chicken@=ducks@cows@rhynos
+3@2@1@4|30|6|chicken@ducks@cows@=rhynos
+1@1@2@1|16|5|chicken@ducks@=cows@=rhynos

@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<quiz>
+{% if category is defined %}
+<question type="category">
+    <category>
+        <text>$course$/{{ category }}</text>
+    </category>
+</question>
+{% endif %}
+{%- for q in questions %}
+<question type="{{ 'multichoice' if questiontype == 'truefalse' else questiontype }}">
+     <name>
+         <text>{{ q.name if q.name else category }} ></text>
+     </name>
+     <questiontext format="html">
+         <text><![CDATA[{{ q.text }}]]></text>
+     </questiontext>
+{%- if q.singlefalse %}
+     <single>false</single>
+{%- endif %}
+{%- if q.shuffle %}
+     <shuffle>1</shuffle>
+{%- endif %}
+{% for ans in q.answers %}
+     <answer fraction="{{ q.correct if ans.correct else q.incorrect }}">
+	 {%- if questiontype == 'truefalse' %}
+        <text>{{ ans.text }}</text>
+	 {%- else %}
+        <text><![CDATA[{{ ans.text }}]]></text>
+	 {%- endif %}
+	 {%- if ans.feedback %}
+        <feedback><text>{{ ans.feedback }}</text></feedback>
+	 {%- endif %}
+     </answer>
+{%- endfor %}
+</question>
+{%- endfor %}
+</quiz>

@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<quiz>
+
+<question type="category">
+    <category>
+        <text>$course$/sample</text>
+    </category>
+</question>
+
+<question type="essay">
+     <name>
+         <text>sample ></text>
+     </name>
+     <questiontext format="html">
+         <text><![CDATA[Briefly discuss advantage and disadvante of beans in <ul><li>Economic<li>Sociological<li>Environmental</ul> perspectives]]></text>
+     </questiontext>
+
+</question>
+<question type="essay">
+     <name>
+         <text>sample ></text>
+     </name>
+     <questiontext format="html">
+         <text><![CDATA[What is risc?]]></text>
+     </questiontext>
+
+     <answer fraction="100">
+        <text><![CDATA[Risc is this (or was it risk?)]]></text>
+     </answer>
+</question>
+</quiz>

@@ -1,0 +1,4 @@
+# multiple choice questions have extra options multianswer and shuffle in command line
+# 2 and following fields are answers, first letter = means correct
+What is <tt>2*2</tt>?|5|3|=4|2|1
+What is the output of <pre>int x = 0;<br/>x++<br/>printf("%d\n", ++x);</pre>|0|1|=2|3|4

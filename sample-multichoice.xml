@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<quiz>
+
+<question type="category">
+    <category>
+        <text>$course$/sample</text>
+    </category>
+</question>
+
+<question type="multichoice">
+     <name>
+         <text>sample ></text>
+     </name>
+     <questiontext format="html">
+         <text><![CDATA[What is <tt>2*2</tt>?]]></text>
+     </questiontext>
+
+     <answer fraction="-25.0">
+        <text><![CDATA[5]]></text>
+     </answer>
+     <answer fraction="-25.0">
+        <text><![CDATA[3]]></text>
+     </answer>
+     <answer fraction="100.0">
+        <text><![CDATA[4]]></text>
+     </answer>
+     <answer fraction="-25.0">
+        <text><![CDATA[2]]></text>
+     </answer>
+     <answer fraction="-25.0">
+        <text><![CDATA[1]]></text>
+     </answer>
+</question>
+<question type="multichoice">
+     <name>
+         <text>sample ></text>
+     </name>
+     <questiontext format="html">
+         <text><![CDATA[What is the output of <pre>int x = 0;<br/>x++<br/>printf("%d\n", ++x);</pre>]]></text>
+     </questiontext>
+
+     <answer fraction="-25.0">
+        <text><![CDATA[0]]></text>
+     </answer>
+     <answer fraction="-25.0">
+        <text><![CDATA[1]]></text>
+     </answer>
+     <answer fraction="100.0">
+        <text><![CDATA[2]]></text>
+     </answer>
+     <answer fraction="-25.0">
+        <text><![CDATA[3]]></text>
+     </answer>
+     <answer fraction="-25.0">
+        <text><![CDATA[4]]></text>
+     </answer>
+</question>
+</quiz>

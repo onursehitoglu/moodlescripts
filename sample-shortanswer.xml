@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<quiz>
+
+<question type="category">
+    <category>
+        <text>$course$/sample</text>
+    </category>
+</question>
+
+<question type="shortanswer">
+     <name>
+         <text>sample ></text>
+     </name>
+     <questiontext format="html">
+         <text><![CDATA[2*2?]]></text>
+     </questiontext>
+
+     <answer fraction="100">
+        <text><![CDATA[4]]></text>
+     </answer>
+</question>
+<question type="shortanswer">
+     <name>
+         <text>sample ></text>
+     </name>
+     <questiontext format="html">
+         <text><![CDATA[Answer to the Ultimate Question of Life, the Universe, and Everything is?]]></text>
+     </questiontext>
+
+     <answer fraction="100">
+        <text><![CDATA[42]]></text>
+     </answer>
+</question>
+</quiz>

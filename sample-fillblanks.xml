@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<quiz>
+
+<question type="category">
+    <category>
+        <text>$course$/sample</text>
+    </category>
+</question>
+
+<question type="cloze">
+     <name>
+         <text>sample ></text>
+     </name>
+     <questiontext format="html">
+         <text><![CDATA[Answer to the Ultimate Question of Life, the Universe, and Everything is {1:SHORTANSWER:%100%42}.]]></text>
+     </questiontext>
+
+</question>
+<question type="cloze">
+     <name>
+         <text>sample ></text>
+     </name>
+     <questiontext format="html">
+         <text><![CDATA[If there is a {1:SHORTANSWER:%100%smoke}, there is a {1:SHORTANSWER:%100%fire}]]></text>
+     </questiontext>
+
+</question>
+</quiz>
