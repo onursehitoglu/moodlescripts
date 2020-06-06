@@ -30,14 +30,13 @@ def toquestion(count, ansstr, sep, match):
 		incorr = len(anslist) - corr
 		if args.multianswer:
 			qtype = 'MRHS' if args.shuffle else 'MRH'
-			corr  = 100  /  corr
+			corr  = 100  //  corr
 		else:
 			qtype = 'MCHS' if args.shuffle else 'MCH'
 			corr = 100
 
-		incorr = - 100 / incorr
+		incorr = - 100 // incorr
 		anslist = list(map(lambda s: '%{}%{}'.format(corr, s[1:]) if s.startswith('=') else '%{}%{}'.format(incorr,s), anslist))
-		print(anslist)
 		return '{{{}:{}:{}}}'.format(1, qtype,  '~'.join(anslist))
 	
 clozebegin = '''<?xml version="1.0" ?>
