@@ -25,18 +25,27 @@ qparams['category'] = args.category
 qparams['questiontype'] = 'cloze' if args.type == 'fillblanks' else args.type
 
 questions = []
+currenttag = None
 # Open input file and 
 with sys.stdin if args.inpfile == '-' else open(args.inpfile, 'r') as inp:
 	while True:
 		inpline = inp.readline().rstrip('\n\r')
 		if inpline == '':
 			break
+		elif inpline[:2] == '#@':	# skip comments (first letter)
+			currenttag = None if inpline[2:] == '' else inpline[2:]
+			continue
 		elif inpline[0] == '#':		# skip comments (first letter)
 			continue		
 		
 		question = {}
 		splits = inpline.split(args.sep, maxsplit = 1)	
 		question['text'] = splits[0]
+
+		if currenttag:
+			question['tag'] = currenttag
+			question['name'] = currenttag
+		
 		if len(splits) == 2:
 			if args.type == 'truefalse':
 				if splits[1].upper() in ["TRUE","T","TR"]:

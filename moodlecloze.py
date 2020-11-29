@@ -5,6 +5,14 @@ import re
 import sys
 from jinja2 import Template
 
+def includefiles(match):
+	try:
+		with open(match.group(1),"r") as inpf:
+			return inpf.read()
+	except Exception as e:
+		sys.stderr.write("matching "+ str(match.groups())+str(e))
+		return ""
+
 def statefull(iobj, sep, func):
 	def matcher(match):
 		nonlocal count
@@ -28,11 +36,12 @@ def toquestion(count, ansstr, sep, match):
 	else:
 		corr = len(list(filter(lambda s:s.startswith('='), anslist)))
 		incorr = len(anslist) - corr
+		lo = 'H' if len(anslist) <= 5 else ''
 		if args.multianswer:
-			qtype = 'MRHS' if args.shuffle else 'MRH'
+			qtype = 'MR' + lo + 'S' if args.shuffle else 'MR' + lo
 			corr  = 100  //  corr
 		else:
-			qtype = 'MCHS' if args.shuffle else 'MCH'
+			qtype = 'MC' + lo + 'S' if args.shuffle else 'MC' + lo
 			corr = 100
 
 		incorr = - 100 // incorr
@@ -92,12 +101,15 @@ with sys.stdin if args.inpfile == '-' else open(args.inpfile, 'r') as inp:
 
 		splits = inpline.split(args.sep)	
 		
+		print(splits)
 		questiontext = re.sub('[+]{4,}', statefull(splits[0].split(args.fieldsep), '', fromfillers), qtext)
+
 
 		splits = splits[1:]
 
 		questiontext = re.sub('_{4,}', statefull(splits, args.fieldsep, toquestion), questiontext)
-		outfile.write(clozetemplate.format(questiontext, 'Q'))
+		questiontext = re.sub('``([^`]+)``', includefiles, questiontext)
+		outfile.write(clozetemplate.format(questiontext, 'Q ' + inpline[:5]))
 
 
 outfile.write('</quiz>')
