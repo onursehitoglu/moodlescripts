@@ -85,5 +85,26 @@ optional arguments:
   -x generated_xml_file, --xmlfile generated_xml_file
   -c import_category, --category import_category
   --multianswer
+  --multibox   H|V|D   layout of multiple choices (default H)
   --shuffle
 ```
+
+## `codetopng.py`
+
+This script can be imported in input generators to create images of source code.It generates a **base64** encoded image that can be included in HTML templates as:
+```HTML
+<img src="data:image/png;base64,++++"/><br/>
+```
+
+Assuming `++++` is replaced by image input. Sample call to `codetopng` is:
+
+```python
+import codetopng as ctp
+
+content = ctp.codetopng('mysource.c', language='C', noise=True)
+```
+
+ * `language` selects the source language for highlighting (default `'Python'`).
+ * `encode` returns a **base64** encoded image (default `True`)
+ * `noise` adds gaussian noise to image to trick OCR's (default `False`)
+
