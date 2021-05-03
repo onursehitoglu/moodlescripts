@@ -15,6 +15,9 @@
      <questiontext format="html">
          <text><![CDATA[{{ q.text }}]]></text>
      </questiontext>
+{%- if q.tag %}
+	<tags><tag><text>{{q.tag}}</text></tag></tags>
+{%- endif %}
 {%- if q.singlefalse %}
      <single>false</single>
 {%- endif %}
