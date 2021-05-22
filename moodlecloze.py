@@ -17,7 +17,11 @@ def statefull(iobj, sep, func):
 	def matcher(match):
 		nonlocal count
 		count += 1
-		return func(count, next(st), sep, match)
+		try:
+			return func(count, next(st), sep, match)
+		except StopIteration:
+			print(f'No match at {count}, {sep}')
+			return '????'
 	st = iter(iobj)
 	count = 0
 	return matcher
@@ -69,7 +73,17 @@ clozetemplate ='''<question type="cloze">
          <text>{1}</text>
      </name>
      <questiontext format="html">
-         <text><![CDATA[{0}]]></text>
+         <text><![CDATA[{0}
+<script>
+    window.addEventListener('load', function() {
+        $('input[type="radio"]').on('mouseup', function(ev) {
+            ev.target.dataset.checked = ev.target.checked ? 1 : "";
+        });
+        $('input[type="radio"]').click(function(ev) {
+            ev.target.checked = !ev.target.dataset.checked;
+        });
+    })
+</script>]]></text>
      </questiontext>
 </question>
 '''
@@ -117,7 +131,7 @@ with sys.stdin if args.inpfile == '-' else open(args.inpfile, 'r') as inp:
 
 		questiontext = re.sub('_{4,}', statefull(splits, args.fieldsep, toquestion), questiontext)
 		questiontext = re.sub('``([^`]+)``', includefiles, questiontext)
-		outfile.write(clozetemplate.format(questiontext, 'Q ' + inpline[:5]))
+		outfile.write(clozetemplate.format(questiontext, 'Q ' + inpline[:25]))
 
 
 outfile.write('</quiz>')

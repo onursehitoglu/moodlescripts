@@ -26,43 +26,6 @@ def codetopng(source, language='python', encode = True, noise = False):
     else:
         return re.sub('\\n','', base64.encodebytes(ret).decode())
 
-'''
-def codetopng(source, language='python', encode = True, noise = True):
-    pandocargs = ["/usr/bin/pandoc", "-f", "markdown", "-t", "latex", "--listings", "-s", "--pdf-engine=xelatex", "-o" ]
-    with tempfile.NamedTemporaryFile(suffix='.md') as mdfile:
-        pdfname = mdfile.name[:-2] + "pdf"
-        mdfile.write(markdowntemplate.format(language, source).encode())
-        pandocargs.extend( (pdfname, mdfile.name) )
-        mdfile.seek(0)
-        sys.stderr.write(' '.join(pandocargs) + "\n")
-        sp = Popen(pandocargs)
-        rc = sp.wait()
-        if rc != 0:
-            return False
-
-    convertargs =["/usr/bin/convert", "-density", "150", pdfname] + (
-            [ "-set", "colorspace", "RGB", "-separate", "-seed", "1000", "-attenuate", "1", 
-             "+noise", "gaussian", "-combine"] if noise else [])
-
-    pngname = pdfname[:-3] + "png"
-    convertargs.append(pngname)
-    sys.stderr.write(' '.join(convertargs) + "\n")
-    cp = Popen(convertargs)
-    rc = cp.wait()
-    if rc != 0:
-        return False
-
-    os.unlink(pdfname)
-
-    with open(pngname, 'rb') as pngfile:
-        ret =  pngfile.read()
-
-    os.unlink(pngname)
-    if not encode:
-        return ret
-    else:
-        return re.sub('\\n','', base64.encodebytes(ret).decode())
-'''
         
 
 if __name__ == '__main__':
